@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>Welcome to the GPU Database</title>
+        <meta charset="utf-8"/>
+        <style>
+        .container {
+          position: ;
+        }
+        .topright {
+          position: fixed;
+          top: 8px;
+          right: 16px;
+        }
+
+        </style>
+
+    </head>
+        <p> Welcome to GPU database application </p>
+          <div class="container">
+            <div class="topright"><button class="button button-block"/><a href='{{ logout_url }}'>Log Out</a> </button></div>
+          </div>
+
+
+        <p></p>
+
+        <form action="/" method="post">
+          <br>
+            GPU Name :  <input type="text" name="name"/><br/>
+            GPU Manufacturer : <input type="text" name="manufacturer"/><br/>
+            date  : <input type="date" name="dateissued"/><br/>
+            <br>
+            Feature 1:        <input type="checkbox"  name="geometryShader"> geometryShader<br>
+            Feature 2:        <input type="checkbox" name="tesselationShader"> tesselationShader<br>
+            Feature 3:        <input type="checkbox"  name="shaderInt16"> shaderInt16<br>
+            Feature 4:        <input type="checkbox" name="sparseBinding"> sparseBinding<br>
+            Feature 5:        <input type="checkbox"  name="textureCompressionETCS"> textureCompressionETCS<br>
+            Feature 6:        <input type="checkbox"  name="vertexPipelineStoresAndAtomics"> vertexPipelineStoresAndAtomics<br>
+            <br>
+            <input type="submit" name="button" value="Add Information"/><br/>
+
+        </form>
+        <br/>
+        <p></p>
+        <form action="/" method="post">
+
+            geometryShader:        <input type="checkbox"  name="geometryShader" value="on">
+            <br>
+            tesselationShader:        <input type="checkbox" name="tesselationShader" value="on">
+            <br>
+            shaderInt16:        <input type="checkbox"  name="shaderInt16" value="on">
+            <br>
+            sparseBinding:        <input type="checkbox" name="sparseBinding" value="on">
+            <br>
+            textureCompressionETCS:        <input type="checkbox"  name="textureCompressionETCS" value="on">
+            <br>
+            vertexPipelineStoresAndAtomics:        <input type="checkbox"  name="vertexPipelineStoresAndAtomics" value="on">
+            <br>
+            <br>
+            <input type="submit" name="button" value="Gpu Feature Index"/><br/>
+
+        </form>
+        <p></p>
+
+
+        <form action="/" method="post">
+        <table>
+            <tr>
+                <th>Gpu </th>
+                <th>Name</th>
+                <th>Manufacturer</th>
+                <th>Date</th>
+                <th>Compare  <input type="submit" name="button" value="Compare"/><br/> </th>
+            </tr>
+        {% for i in gpu %}
+            <tr>
+                <td>
+        {{ loop.index }}<br/>
+                    </td>
+            <td>
+        <a href="/Editpage?name={{i.name}}">{{ i.name }} </a>
+          </td>
+         <td>
+        {{ i.manufacturer }}
+          </td>
+                <td>
+        {{ i.dateissued }}
+          </td>
+         <td >
+             <input type="checkbox"  name="gpuID" value="{{i.name}}">
+                </td>
+
+                </tr>
+        {% endfor %}
+            </table>
+            </form>
+        <div style="color: blue">
+        {% if msg %}
+        <p>{{ msg }}</p>
+        {% endif %}
+
+    </div>
+    </body>
+</html>

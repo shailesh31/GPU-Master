@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>GPU DATABASE</title>
+<meta charset="utf-8"/>
+   <style>
+      table, th, td {
+  border: 1px solid black;
+
+}
+th, td {
+ padding:1em;
+}
+span{
+color:blue;
+}
+
+a{
+color:black;
+text-decoration:none;
+}
+.in{
+padding-right:1em;
+}
+td{
+text-align:center;
+vertical-align:middle;
+}
+.container {
+  position: ;
+}
+.topright {
+  position: fixed;
+  top: 8px;
+  right: 16px;
+}
+   </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topright"><button class="button button-block"/><a href='{{ logout_url }}'>Log Out</a> </button></div>
+  </div>
+<br/>
+
+<table >
+
+   <tr>
+
+      <th colspan="2">Gpu Name </th>
+      <th colspan="2">Manufacturer</th>
+      <th colspan="2">Dateissued</th>
+      <th colspan="6">Gpu Features</th>
+
+   </tr>
+
+{% for i in range(val) %}
+   {% for i in gpu[i] %}
+
+
+   <tr>
+      <td colspan="2">{{i.name}}</td>
+      <td colspan="2">{{i.manufacturer}}</td>
+      <td colspan="2">{{i.dateissued}}</td>
+      <td>geometryShader:<span>{{i.geometryShader}}</span></br>
+      tesselationShader:<span>{{i.tesselationShader}}</span></br>
+      shaderInt16:<span>{{i.shaderInt16}}</span></br>
+      sparseBinding:<span>{{i.sparseBinding}}</span></br>
+      textureCompressionETCS:<span>{{i.textureCompressionETCS}}</span></br>
+      vertexPipelineStoresAndAtomics:<span>{{i.vertexPipelineStoresAndAtomics}}</span></td>
+
+   </tr>
+   {% endfor %}
+{% endfor %}
+
+   </table>
+
+</body>
+</html>

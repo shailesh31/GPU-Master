@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Update GPU Data</title>
+</head>
+<p> UPDATE GPU DATA </p>
+    <form action="/update?name={{ my_gpu.name }}" method="post">
+        GPU Name :  <input type="text" name="name" value="{{my_gpu.name}}" readonly/><br/>
+        GPU Manufacturer : <input type="text" name="manufacturer" value="{{my_gpu.manufacturer}}"/><br/>
+        date  : <input type="date" name="dateissued" value="{{my_gpu.dateissued}}"/><br/>
+        Model Type:
+        geometryShader: <input type="checkbox"  name="geometryShader" value="on"{{geometryShader}}/><br/>
+            tesselationShader: <input type="checkbox" name="tesselationShader" value="on"{{tesselationShader}}/><br/>
+            shaderInt16: <input type="checkbox"  name="shaderInt16" value="on" {{shaderInt16}}/><br/>
+            sparseBinding: <input type="checkbox" name="sparseBinding" value="on"{{sparseBinding}}/><br/>
+            textureCompressionETCS: <input type="checkbox" name="textureCompressionETCS" value="on" {{textureCompressionETCS}}/><br>
+            vertexPipelineStoresAndAtomics: <input type="checkbox"  name="vertexPipelineStoresAndAtomics" value="on"{{vertexPipelineStoresAndAtomics}}/><br>
+            <input type="submit" name="button" value="UPDATE DATASTORE"/>
+    </form>
+    <form method="post" action="/update">
+        <input type="submit" value="CANCEL" name="button"/>
+    </form>
+    {{temp}}
+    <br/>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Welcome to the GPU Application</title>
+        <meta charset="utf-8"/>
+    </head>
+        <p> You are now logged into the GPU application </p>
+        <p></p>
+        <!-- we will print out the data that are attached to the
+        name clicked -->
+        {% for i in gpu %}
+        GPU {{ loop.index }}<br/>
+        name :  {{ i.name }}<br/>
+        manufacturer : {{ i.manufacturer }}<br/>
+        Dateissued  : {{ i.dateissued }}<br/>
+        geometryShader:{{ i.geometryShader }}<br/>
+        tesselationShader:{{ i.tesselationShader}}<br/>
+        shaderInt16:{{ i.shaderInt16 }}<br/>
+        sparseBinding:{{ i.sparseBinding }}<br/>
+        textureCompressionETCS:{{ i.textureCompressionETCS }}<br/>
+        vertexPipelineStoresAndAtomics:{{ i.vertexPipelineStoresAndAtomics }}<br/>
+        <br/>
+        <button>
+            <a href="/update?name={{ i.name }}">UPDATE GPU</a>
+        </button>
+
+        {% endfor %}
+        <div style="color: blue">
+        {% if msg %}
+        <p>{{ msg }}</p>
+        {% endif %}
+
+    </div>
+    </body>
+</html>
